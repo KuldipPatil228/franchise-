@@ -1,7 +1,7 @@
 package com.example.franchise.DTO;
 
-import com.example.franchise.Entitiy.User;
 
+import com.example.franchise.Entitiy.User;
 
 public record CustomerDetailsDTO(
         Long id,
@@ -9,4 +9,5 @@ public record CustomerDetailsDTO(
         String address,
         String paymentMethod
 ) {
+
 }
