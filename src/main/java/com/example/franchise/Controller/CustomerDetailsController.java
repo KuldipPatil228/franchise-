@@ -1,7 +1,8 @@
 package com.example.franchise.Controller;
 
 import com.example.franchise.DTO.CustomerDetailsDTO;
-import com.example.franchise.Entitiy.CustomerDetails;
+import com.example.franchise.DTO.RequstDto.CreateCustomerDetailsRequest;
+import com.example.franchise.DTO.RequstDto.updateCustomerDetailsRequest;
 import com.example.franchise.service.CustomerDetailsService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,19 +20,20 @@ public class CustomerDetailsController {
         this.customerDetailsService = customerDetailsService;
     }
 
-    @GetMapping("/{id}")
+
+    @PostMapping("/api/create/CustomerDetails")
+    public CustomerDetailsDTO createCustomerDetails(@RequestBody CreateCustomerDetailsRequest createCustomerDetailsRequest) {
+        return customerDetailsService.createCustomerDetails(createCustomerDetailsRequest.CreateCustomerDetails());
+    }
+
+    @GetMapping("/api/read/CustomerDetails/{id}")
     public CustomerDetailsDTO getCustomerDetailsById(@PathVariable Long id) {
         return customerDetailsService.getCustomerDetailsById(id);
     }
 
-    @PostMapping("/api/create/CustomerDetails")
-    public CustomerDetailsDTO createCustomerDetails(@RequestBody CustomerDetails customerDetails) {
-        return customerDetailsService.createCustomerDetails(customerDetails);
-    }
-
-    @PutMapping("/api/update/CustomerDetails/{id}")
-    public CustomerDetailsDTO updateCustomerDetails(@PathVariable Long id, @RequestBody CustomerDetailsDTO customerDetails) {
-        return customerDetailsService.updateCustomerDetails(id, customerDetails);
+    @PutMapping("/api/update/CustomerDetails")
+    public CustomerDetailsDTO updateCustomerDetails(@RequestBody updateCustomerDetailsRequest updateCustomerDetailsRequest) {
+        return customerDetailsService.updateCustomerDetails(updateCustomerDetailsRequest.updateCustomerDetails());
     }
 
     @DeleteMapping("/api/delete/CustomerDetails/{id}")
