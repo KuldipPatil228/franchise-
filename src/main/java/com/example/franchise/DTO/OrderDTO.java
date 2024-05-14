@@ -10,7 +10,6 @@ import java.util.List;
 public record OrderDTO(
 
         Long id,
-
         User user,
         List<OrderItem> orderItems,
 
