@@ -7,6 +7,6 @@ import java.util.logging.Logger;
 @RestController
 public class DeliveryDetailsController {
 
-    private static final Logger log = Logger.getLogger(OrderItemController.class.getName());
+    private static final Logger log = Logger.getLogger(DeliveryDetailsController.class.getName());
 
 }

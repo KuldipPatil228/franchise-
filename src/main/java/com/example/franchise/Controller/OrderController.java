@@ -1,6 +1,7 @@
 package com.example.franchise.Controller;
 
 import com.example.franchise.DTO.OrderDTO;
+import com.example.franchise.DTO.RequstDto.CreateOrderRequest;
 import com.example.franchise.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,8 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderDTO> createOrder(@RequestBody OrderDTO orderDTO) {
-        return orderService.createOrder(orderDTO);
+    public ResponseEntity<OrderDTO> createOrder(@RequestBody CreateOrderRequest createOrderRequest) {
+        return orderService.createOrder(createOrderRequest);
     }
 
     @GetMapping("/api/read/Order/{id}")
