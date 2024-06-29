@@ -1,11 +1,10 @@
 package com.example.franchise.service.serviceImpl;
 
 import com.example.franchise.DTO.OrderDTO;
-import com.example.franchise.DTO.OrderItemDTO;
 import com.example.franchise.DTO.RequstDto.CreateOrderRequest;
 import com.example.franchise.Entitiy.DeliveryDetails;
 import com.example.franchise.Entitiy.Order;
-import com.example.franchise.Entitiy.OrderItem;
+import com.example.franchise.Entitiy.Item;
 import com.example.franchise.Entitiy.User;
 import com.example.franchise.Enums.MessageType;
 import com.example.franchise.Exception.ApiException;
@@ -19,11 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -45,11 +40,11 @@ public class OrderServiceImpl implements OrderService {
     public ResponseEntity<OrderDTO> createOrder(CreateOrderRequest orderDTO) {
 
         User user = fetchUser(orderDTO.userId());
-        OrderItem orderItem = fetchOrderItem(orderDTO.orderItemId());
+        Item item = fetchOrderItem(orderDTO.orderItemId());
 //        DeliveryDetails deliveryDetails = fetchDeliveryDetails(orderDTO.deliveryDetailsId());
         Order order = new Order();
         order.setUser(user);
-        order.setOrderItems(Arrays.asList(orderItem));
+//        order.setItems(Arrays.asList(item));
         order.setOrderDate(orderDTO.orderDate());
 //        order.setDeliveryDetails(deliveryDetails);
         order.setOrderDate(orderDTO.orderDate());
@@ -91,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
                 .orElseThrow(() -> new ApiException(MessageType.NOT_FOUND_USER, "User not found for id: " + userId));
     }
 
-    private OrderItem fetchOrderItem(Long orderItemId) {
+    private Item fetchOrderItem(Long orderItemId) {
         return orderItemRepository.findById(orderItemId)
                 .orElseThrow(() -> new ApiException(MessageType.NOT_FOUND_ENTITY, "Order Item found for id: " + orderItemId));
     }

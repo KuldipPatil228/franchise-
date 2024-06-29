@@ -12,15 +12,16 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
-public class menuItemServiceImpl implements MenuItemService {
+public class MenuItemServiceImpl implements MenuItemService {
 
-    private  final  MenuItemRepository menuItemRepository;
+    private  final MenuItemRepository menuItemRepository;
 
-    public menuItemServiceImpl(MenuItemRepository menuItemRepository) {
+
+    private static final Logger log = Logger.getLogger(MenuItemServiceImpl.class.getName());
+
+    public MenuItemServiceImpl(MenuItemRepository menuItemRepository) {
         this.menuItemRepository = menuItemRepository;
     }
-
-    private static final Logger log = Logger.getLogger(menuItemServiceImpl.class.getName());
 
     @Override
     public MenuItemDTO addMenuItem(MenuItemDTO menuItemDTO) {
@@ -32,8 +33,10 @@ public class menuItemServiceImpl implements MenuItemService {
 
     @Override
     public List<MenuItemDTO> getAllMenuItemsByCategory(String category) {
-        List<MenuItem> menuItems = menuItemRepository.getMenuItemsByCategory(category);
-        return ConverterUtil.menuItemConverter().toDTOList(menuItems);
+//        List<MenuItem> menuItems = menuItemRepository.getMenuItemsByCategory(category);
+
+        return null;
+//        ConverterUtil.menuItemConverter().toDTOList(menuItems);
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.example.franchise.Util.ConverterUtil;
 import com.example.franchise.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -48,6 +49,11 @@ public class userServiceImpl implements UserService {
         User user = fetchUser(userId);
         userRepository.delete(user);
         return "";
+    }
+
+    @Override
+    public List<UserDto> list() {
+        return ConverterUtil.userConverter().toDtos(userRepository.findAll());
     }
 
     private User fetchUser(Long userId) {

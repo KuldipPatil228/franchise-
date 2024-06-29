@@ -6,6 +6,7 @@ import com.example.franchise.DTO.UserDto;
 import com.example.franchise.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 @RestController
@@ -40,4 +41,8 @@ public class UserController {
         return "User deleted : " + userId;
     }
 
+    @GetMapping("/api/user/list/")
+    public List<UserDto> list(){
+        return userService.list();
+    }
 }

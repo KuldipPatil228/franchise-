@@ -1,9 +1,6 @@
 package com.example.franchise.Util;
 
-import com.example.franchise.Converter.CustomerDetailsConverter;
-import com.example.franchise.Converter.MenuItemConverter;
-import com.example.franchise.Converter.OrderConverter;
-import com.example.franchise.Converter.UserConverter;
+import com.example.franchise.Converter.*;
 
 public class ConverterUtil {
 
@@ -22,6 +19,9 @@ public class ConverterUtil {
         return new OrderConverter();
     }
 
+    public static FranchiseConverter franchiseConverter() {
+        return new FranchiseConverter();
+    }
 
 
 }

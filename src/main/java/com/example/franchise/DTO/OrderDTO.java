@@ -1,7 +1,7 @@
 package com.example.franchise.DTO;
 
 import com.example.franchise.Entitiy.DeliveryDetails;
-import com.example.franchise.Entitiy.OrderItem;
+import com.example.franchise.Entitiy.Item;
 import com.example.franchise.Entitiy.User;
 
 import java.util.Date;
@@ -11,7 +11,7 @@ public record OrderDTO(
 
         Long id,
         User user,
-        List<OrderItem> orderItems,
+        List<Item> items,
 
         DeliveryDetails deliveryDetails,
 

@@ -22,7 +22,12 @@ public class DeliveryDetails {
     @JoinColumn(name = "order_id", nullable = false, unique = true)
     private Order order;
 
+    @Enumerated(EnumType.STRING)
     private DeliveryMethod deliveryMethod;
-    private String address;
+
+    @OneToOne
+    private UserAddress userAddress;
+
+    @Temporal(TemporalType.TIMESTAMP)
     private Date deliveryTime;
 }

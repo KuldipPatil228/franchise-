@@ -14,6 +14,8 @@ public class UserConverter extends AbstractConverter<UserDto,User> {
                     user.setName(userDTO.name());
                     user.setEmail(userDTO.email());
                     user.setUserType(userDTO.userType());
+                    user.setUserName(user.getUserName());
+                    user.setPassword(userDTO.password());
                     user.setMobileNumber(userDTO.mobileNumber());
                     return user;
                 }, user -> {
@@ -22,6 +24,8 @@ public class UserConverter extends AbstractConverter<UserDto,User> {
                             user.getName(),
                             user.getEmail(),
                             user.getMobileNumber(),
+                            null,
+                            null,
                             user.getUserType()
                     );
 

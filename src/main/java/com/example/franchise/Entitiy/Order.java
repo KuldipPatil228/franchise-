@@ -22,13 +22,14 @@ public class Order {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems;
+    @OneToMany
+    private List<Item> orderItems;
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private DeliveryDetails deliveryDetails;
 
     private Date orderDate;
+
     private double totalAmount;
 
 
@@ -48,11 +49,11 @@ public class Order {
         this.user = user;
     }
 
-    public List<OrderItem> getOrderItems() {
+    public List<Item> getOrderItems() {
         return orderItems;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
+    public void setOrderItems(List<Item> orderItems) {
         this.orderItems = orderItems;
     }
 
@@ -83,13 +84,14 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long id, User user, List<OrderItem> orderItems, DeliveryDetails deliveryDetails, Date orderDate, double totalAmount) {
-        this.id = id;
-        this.user = user;
-        this.orderItems = orderItems;
+    public Order(DeliveryDetails deliveryDetails, Long id, Date orderDate, List<Item> orderItems, double totalAmount, User user) {
         this.deliveryDetails = deliveryDetails;
+        this.id = id;
         this.orderDate = orderDate;
+        this.orderItems = orderItems;
         this.totalAmount = totalAmount;
+        this.user = user;
     }
-    //    private OrderStatus status;
+
+//    private OrderStatus status;
 }

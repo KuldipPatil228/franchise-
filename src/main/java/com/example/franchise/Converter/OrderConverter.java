@@ -23,7 +23,7 @@ public class OrderConverter extends AbstractConverter<OrderDTO, Order>{
                 order -> new OrderDTO(
                         order.getId(),
                         order.getUser(),
-                        order.getOrderItems(),
+                        null,
                         order.getDeliveryDetails(),
                         order.getOrderDate(),
                         order.getTotalAmount()
@@ -32,7 +32,6 @@ public class OrderConverter extends AbstractConverter<OrderDTO, Order>{
     }
     public Order updateEntity(OrderDTO dto, Order entity) {
         entity.setUser(dto.user());
-        entity.setOrderItems(dto.orderItems());
         entity.setDeliveryDetails(dto.deliveryDetails());
         entity.setOrderDate(dto.orderDate());
         entity.setTotalAmount(dto.totalAmount());

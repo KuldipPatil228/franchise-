@@ -1,9 +1,10 @@
 package com.example.franchise.Enums;
 
 public enum UserType {
-
+    SUPER_USER,
     FRANCHISE_OWNER,
     CUSTOMER
+
 
 
 //    private final int numberValue;

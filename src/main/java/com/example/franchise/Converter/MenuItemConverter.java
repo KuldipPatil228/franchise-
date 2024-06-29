@@ -15,38 +15,32 @@ public class MenuItemConverter extends AbstractConverter<MenuItemDTO, MenuItem> 
                 // Conversion logic from MenuItemDto to MenuItem
                 menuItemDto -> {
                     MenuItem menuItem = new MenuItem();
-                    menuItem.setItemName(menuItemDto.itemName());
-                    menuItem.setAmount(menuItemDto.amount());
-                    menuItem.setCategory(menuItemDto.category());
 //                    menuItem.setCategory(menuItemDto.getCategory());
 //                    menuItem.setQuantity(menuItemDto.getQuantity());
                     return menuItem;
                 },
                 menuItem -> new MenuItemDTO(
-                        menuItem.getId(),
-                        menuItem.getItemName(),
-                        null,
-                        menuItem.getAmount(),
-                        menuItem.getCategory()
+                        menuItem.getId(),null,null,0,null
                 )
         );
     }
 
     // Method to update MenuItem entity with data from MenuItemDto
     public MenuItem update(MenuItem menuItem, MenuItemDTO menuItemDto) {
-        menuItem.setItemName(menuItemDto.itemName());
-        menuItem.setAmount(menuItemDto.amount());
-        menuItem.setCategory(menuItemDto.category());
+//        menuItem.setItemName(menuItemDto.itemName());
+//        menuItem.setAmount(menuItemDto.amount());
+//        menuItem.setCategory(menuItemDto.category());
         return menuItem;
     }
 
     public MenuItemDTO convertToDTO(MenuItem menuItem) {
         return new MenuItemDTO(
                 menuItem.getId(),
-                menuItem.getItemName(),
-                null,
-                menuItem.getAmount(),
-                menuItem.getCategory()
+null,null,0,null
+//                menuItem.getItemName(),
+//                null,
+//                menuItem.getAmount(),
+//                menuItem.getCategory()
         );
     }
 

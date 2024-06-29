@@ -6,6 +6,8 @@ package com.example.franchise.Enums;
         DESSERTS,
         SALADS,
         SIDES,
+        VEG,
+        NON_VEG,
         OTHER
     }
 
